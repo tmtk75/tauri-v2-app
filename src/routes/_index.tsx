@@ -1,6 +1,6 @@
 import { NavLink } from "@remix-run/react";
-import { App } from "../App";
 import { $path } from "remix-routes";
+import { App } from "../App";
 
 export default function Index() {
   return (
