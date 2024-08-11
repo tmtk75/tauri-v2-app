@@ -1,12 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { vitePlugin as remix } from "@remix-run/dev";
+import tsconfigPaths from "vite-tsconfig-paths"; // supporting alias
 
 // @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST;
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [react()],
+  plugins: [
+    // react(),
+    remix({ ssr: false, appDirectory: "./src" }),
+    tsconfigPaths(),
+  ],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //
