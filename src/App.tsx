@@ -45,6 +45,23 @@ function App() {
         <button type="submit">Greet</button>
       </form>
 
+      <form
+        className="row"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          const v = await invoke("hello", {
+            age: 29,
+            name: "John",
+            enabled: true,
+            arr: [1, 2, 3],
+            obj: { a: 1, b: 2 },
+          });
+          console.log(v);
+        }}
+      >
+        <button type="submit">Hello</button>
+      </form>
+
       <p>{greetMsg}</p>
     </div>
   );
